@@ -1,0 +1,30 @@
+name: test-snapd-cups-consumer
+version: "1.0"
+summary: cups-consumer lets us test the cups socket
+description: cups-consumer lets us test the cups socket
+grade: stable
+confinement: strict
+
+# use a different base snap from the slotting snap to make sure it works across
+# bases
+base: core20
+
+# use a layout to make sure that works too
+layout:
+  /etc/file.txt:
+    bind-file: $SNAP_DATA/file.txt
+
+apps:
+  bin:
+    command: bin.sh
+    plugs:
+      - cups
+      - network
+
+parts:
+  my-part:
+    plugin: dump
+    source: .
+    stage-packages:
+      - socat
+      - netcat-openbsd
