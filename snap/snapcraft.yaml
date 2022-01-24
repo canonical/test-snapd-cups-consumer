@@ -7,7 +7,7 @@ confinement: strict
 
 # use a different base snap from the slotting snap to make sure it works across
 # bases
-base: core20
+base: core18
 
 # use a layout to make sure that works too
 layout:
