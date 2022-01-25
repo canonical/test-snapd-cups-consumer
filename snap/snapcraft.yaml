@@ -15,10 +15,15 @@ layout:
     bind-file: $SNAP_DATA/file.txt
 
 apps:
-  bin:
+  cups:
     command: bin.sh
     plugs:
       - cups
+      - network
+  cups-control:
+    command: bin.sh
+    plugs:
+      - cups-control
       - network
 
 parts:
