@@ -14,6 +14,8 @@ layout:
   /etc/file.txt:
     bind-file: $SNAP_DATA/file.txt
 
+# this is not used or needed for anything other than to trigger automatic
+# installation of the cups snap via "default-provider: cups"
 plugs:
   foo-install-cups:
     interface: content
@@ -40,3 +42,4 @@ parts:
     stage-packages:
       - socat
       - netcat-openbsd
+      - cups-client
